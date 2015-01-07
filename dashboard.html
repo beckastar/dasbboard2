@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Becka Robbins @beckastar">
+
+    <title>Dashboard Widgety Widget</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap.dist/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- MetisMenu CSS -->
+    <!-- <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Highcharts -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/data.js"></script>
+    <script src="http://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <!-- Javascript -->
+    <script src="js/dashboard.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <!-- <script src="js/plugins/metisMenu/metisMenu.min.js"></script> -->
+
+    <!-- Morris Charts JavaScript -->
+    <!-- <script src="js/plugins/morris/raphael.min.js"></script> -->
+    <!-- <script src="js/plugins/morris/morris.min.js"></script> -->
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav  class="navbar navbar-default" >
+            <div class="container-fluid">
+                <div class="navbar-header row-fluid">
+                    <img src= "img/templogo.jpg" class="navbar-brand" id="navbarImage">
+                    <!-- TODO: change font size -->
+                    <span class="navbar-text navbarDashboardText" id="userText">Signed in as <a href="#" class="navbar-link">{{name}}, {{role}} </a></span>
+                    <span class="navbar-text pull-right navbarDashboardText" id="dateText">Today is January 1, 2015</span>
+                    <div>
+                 </div>
+            </div>
+        </nav>
+        <!-- </nav> -->
+
+        <div id="page-wrapper">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3">
+                    <div class="panel-default panel" id="gauge_chart_panel">
+                        <div class="panel-heading">You're doing {{adjective}} at the program
+                        </div>
+                        <div id="gauge_chart">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Line Graph -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel-default" id="line_graph_container">
+                        <div class="panel-heading">Minutes per Day</div>
+                        <div class="panel-body">
+                            <div id="line_graph"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end line graph -->
+
+                <!-- patient usage data -->
+                <div class="col-lg-3 col-md-3">
+                                <div class="panel-heading">Patient Usage Data
+                                 </div>
+                                <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Start Time</th>
+                                                <th>Duration</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:29 PM</td>
+                                                <td>4:47</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:20 PM</td>
+                                                <td>4:56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>$23.71</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                               <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>$943.45</td>
+                                            </tr>
+                                               <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                               <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>$943.45</td>
+                                            </tr>
+                                               <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                        </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                        </div>
+                        <!-- end panel  -->
+                </div>
+                <!-- end col for patient data -->
+
+            </div>
+            <!-- </first row> -->
+
+            <!-- Config table -->
+<!--                 <div class="col-lg-3 col-md-3">
+                    <div class="panel-default panel">
+                        <div class="panel-heading">Config
+                        </div>
+                         <div class="table-responsive" id="config">
+                            <table class="table table-bordered table-hover table-striped table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td class="col1">Device ID</td>
+                                        <td>{{DeviceID}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Doctor Name</td>
+                                        <td>{{DoctorName}}</td>
+                                    </tr>
+                                     <tr>
+                                        <td class="col1">Patient Name</td>
+                                        <td>{{PatientName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Patient ID</td>
+                                        <td>{{PatientID}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Vibration</td>
+                                        <td>{{Gforce}}</td>
+                                    </tr>
+                                     <tr>
+                                        <td class="col1">Current Date and Time</td>
+                                        <td>{{dateTime object}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Password Reset</td>
+                                        <td>*********</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1"><button class="btn btn-default" type="submit">Save Configuration</button></td>
+                                        <td><button class="btn btn-default" type="submit">Reset Device</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+            <!-- </div> -->
+                    <!-- /.panel -->
+
+
+                <!-- </div> -->
+                <!-- /.col-lg-8 -->
+                        <!-- /.panel-heading -->
+
+                        <!-- /.panel-body -->
+                    <!-- </div> -->
+                    <!-- /.panel .chat-panel -->
+                <!-- </div> -->
+                <!-- /.col-lg-4 -->
+            <!-- </div> -->
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>
