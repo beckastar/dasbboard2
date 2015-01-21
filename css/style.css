@@ -1,4 +1,6 @@
-
+.panel-body{
+    height: 100%
+}
 
 .panel{
     overflow: hidden;
