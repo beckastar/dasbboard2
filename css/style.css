@@ -1,3 +1,37 @@
+
+
+.panel{
+    overflow: hidden;
+}
+tr{
+    width: 91% !important;
+}
+
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    -webkit-overflow-scrolling: touch;
+}
+.table-responsive>.table {
+    margin-bottom: 0;
+}
+
+.table-responsive>.table>thead>tr>th,
+.table-responsive>.table>tbody>tr>th,
+.table-responsive>.table>tfoot>tr>th,
+.table-responsive>.table>thead>tr>td,
+.table-responsive>.table>tbody>tr>td,
+.table-responsive>.table>tfoot>tr>td {
+    white-space: nowrap;
+}
+
+html, body, .container{
+    height: 100%;
+}
 /*line graph - container size */
 div#highcharts-0.highcharts-container{
     height: 295px !important;
@@ -50,7 +84,7 @@ table{
 }
 
 tbody{
-    height: 81%;
+    height: 100%;
     overflow-y: scroll;
     width: 100%;
     position: absolute;
@@ -100,6 +134,9 @@ tbody{
 
 body {
     background-color: #f8f8f8;
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #wrapper {
