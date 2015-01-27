@@ -40,7 +40,7 @@ tr{
     width: 91% !important;
 }
 table {
-  width:auto;
+  width:100%;
 }
 td {
   white-space:nowrap;
@@ -50,7 +50,6 @@ td:last-child {
 }
 
 .table-responsive {
-    width: 50%;
     margin-bottom: 15px;
     overflow-y: hidden;
     overflow-x: scroll;
