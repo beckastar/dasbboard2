@@ -42,6 +42,17 @@
 tr{
     width: 91% !important;
 }
+#heading .navbar-header{
+   background-color: #D0E3C4;
+    padding: 10px 15px;
+  margin: -15px -15px 15px;
+  font-size: 17.5px;
+  font-weight: 500;
+  border-bottom: 7px solid #ADC698;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+
+}
 .column .panel-heading{
   background-color: #D0E3C4;
     padding: 10px 15px;
@@ -60,6 +71,9 @@ td {
 }
 td:last-child {
   width:54%;
+}
+.navbar-header {
+float: none;
 }
 
 .table-responsive {
