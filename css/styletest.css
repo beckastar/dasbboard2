@@ -20,6 +20,8 @@
   .element {
     height: 50%;
     overflow: hidden;
+    border: 10px solid #CFCFCD;
+    margin: 10px;
   }
   #column1{
   }
@@ -93,6 +95,10 @@ float: none;
 #patient_data_panel{
   width:87%;
   float: right;
+  margin-top: 0px;
+}
+.panel-body{
+  margin-bottom: 5px;
 }
 #instructions_panel_body{
   height: 20%;

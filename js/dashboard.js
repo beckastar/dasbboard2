@@ -300,7 +300,7 @@ $(function () {
       $('#line_graph').highcharts({
           chart: {
               type: 'column',
-              height: 270
+              height: 240
           },
 
           title: {
