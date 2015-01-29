@@ -9,6 +9,13 @@
     width: 100%;
     height: 100%;
   }
+#container  #patient_data_column{
+    float: left;
+    position: absolute;
+    left: 80%;
+    top: 8.7%;
+    z-index: -1;
+  }
   .column {
     display: flex;
     flex-direction: column;
@@ -63,9 +70,7 @@ tr{
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-table {
-  width:100%;
-}
+
 td {
   white-space:nowrap;
 }
@@ -79,7 +84,7 @@ float: none;
   height: 40%;
 }
 .bottom_row{
-  height: 50%;
+  height: 45%;
 }
 .table-responsive {
     margin-bottom: 15px;
@@ -98,7 +103,13 @@ float: none;
 #settings_table > tr{
   padding: 10px;
 }
-#patient_data_panel{
+#patient_data_panel_heading{
+  width:87%;
+  float: right;
+  margin-top: 0px;
+ border: 6px solid #ADC698;
+}
+.patient_data_panel{
   width:87%;
   float: right;
   margin-top: 0px;
@@ -106,10 +117,21 @@ float: none;
 .panel-body{
   margin-bottom: 5px;
   background-color: #E5E5E5;
+
+}
+#usage_data_table{
+ border: 6px solid #ADC698;
+width: 92.3%;
+position: relative;
+left: 10.8%;
+top: -6px;
 }
 #instructions_panel_body{
   height: 20%;
 }
 .panel-default{
   /*padding-bottom: 10px;*/
+}
+body #heading .navbar-header{
+  padding: 0px 1px;
 }

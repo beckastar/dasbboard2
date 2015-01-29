@@ -76,7 +76,7 @@ $(function () {
                 rotation: 'auto'
             },
             title: {
-                text: 'avg min per week'
+                text: 'avg min/week'
             },
             plotBands: [{
                 from: 0,
