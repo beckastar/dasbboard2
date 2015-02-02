@@ -1,54 +1,33 @@
-  html, body {
-    height: 100%;
-  }
-  body{
-    background: #E4E4EA;
-  }
-  #container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
+html, body {
+  height: 100%;
+}
+body{
+  background: #E4E4EA;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 42.3%;
+  height: 100%;
+  padding-right: 10px;
+}
+#container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
 #container  #patient_data_column{
-    float: left;
-    position: absolute;
-    left: 80%;
-    top: 8.7%;
-    z-index: -1;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    width: 42.3%;
-    height: 100%;
-    padding-right: 10px;
-  }
-  .element {
-    height: 50%;
-    overflow: hidden;
-    border: 6px solid #ADC698;
-    margin: 10px;
-  }
-  #column1{
-  }
-  #topleft {
-    background: red;
-  }
-  #bottomleft {
-    background: white;
-  }
-  #topmiddle {
-    background: white;
-  }
-  #bottommiddle {
-    background: purple;
-  }
-  #right {
-    background: blue;
-    overflow-y: auto;
-  }
-tr{
-    width: 91% !important;
+  float: left;
+  position: absolute;
+  left: 85%;
+  top: 9.8%;
+  z-index: -1;
+}
+.element {
+  height: 50%;
+  overflow: hidden;
+  border: 6px solid #ADC698;
+  margin: 10px;
 }
 #heading .navbar-header{
    background-color: #D0E3C4;
@@ -61,6 +40,9 @@ tr{
   border-top-left-radius: 3px;
 
 }
+tr{
+    width: 91% !important;
+}
 .column .panel-heading{
   background-color: #D0E3C4;
   /*  padding: 10px 15px;*/
@@ -70,7 +52,6 @@ tr{
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-
 td {
   white-space:nowrap;
 }
@@ -78,25 +59,26 @@ td:last-child {
   width:54%;
 }
 .navbar-header {
-float: none;
+  float: none;
 }
 .top_row{
-  height: 40%;
+  height: 46%;
 }
 .bottom_row{
   height: 45%;
 }
 .table-responsive {
-    margin-bottom: 15px;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
-    -webkit-overflow-scrolling: touch;
+  margin-bottom: 15px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid #ddd;
+  -webkit-overflow-scrolling: touch;
 }
 .table-responsive>.table {
     margin-bottom: 0;
 }
+
 #gauge_chart{
   background-color: #E4E4EA;
 }
@@ -109,29 +91,73 @@ float: none;
   margin-top: 0px;
  border: 6px solid #ADC698;
 }
-.patient_data_panel{
+#patient_data_panel{
+     background-color: alice-blue;
+}
+/*table#data_table{
+  font-family: verdana,arial,sans-serif;
+  font-size:11px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+table#data_table th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #dedede;
+}
+table#data_table td{
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #ffffff;
+}
+.odd {
+   background: #ccc;
+}
+#table_container{
+  height: 100%
+
+}*/
+/*.patient_data_panel{
   width:87%;
   float: right;
   margin-top: 0px;
-}
+}*/
+/*.outer_table{
+  height: 100%;
+}*/
+/*.table_inner{
+  height: 50%;
+}*/
 .panel-body{
   margin-bottom: 5px;
   background-color: #E5E5E5;
 
 }
-#usage_data_table{
- border: 6px solid #ADC698;
-width: 92.3%;
-position: relative;
-left: 10.8%;
-top: -6px;
+/*thead > tr, tbody{
+    display:block;
+}*/
+/*#data_table < tr{
+  overflow-y: scroll;
+}*/
+/*#usage_data_table{
+  border: 6px solid #ADC698;
+  width: 92.3%;
+  position: relative;
+  left: 10.8%;
+  top: -6px;
+height: 110px !important;
 }
+*/
 #instructions_panel_body{
   height: 20%;
 }
-.panel-default{
-  /*padding-bottom: 10px;*/
-}
+
 body #heading .navbar-header{
   padding: 0px 1px;
 }

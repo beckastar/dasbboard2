@@ -13,6 +13,15 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Datatables CSS--><!--
+    <link  rel="stylesheet" type="text/css" href="code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="cdn.datatables.net/plug-ins/3cfcc339e89/integration/jqueryui/dataTables.jqueryui.css">
+ -->
+
+ <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+      <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+
     <!-- Custom CSS -->
     <link href="css/styletest.css" rel="stylesheet">
 
@@ -21,6 +30,11 @@
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- Datatables JS -->
+     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+          <script type="text/javascript" charset="utf8" src="https://datatables.net/release-datatables/extensions/Scroller/js/dataTables.scroller.js"></script>
 
     <!-- MetisMenu CSS -->
     <!-- <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
@@ -36,20 +50,9 @@
     <!-- Javascript -->
     <script src="js/dashboard.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <!-- <script src="js/plugins/metisMenu/metisMenu.min.js"></script> -->
-
-    <!-- Morris Charts JavaScript -->
-    <!-- <script src="js/plugins/morris/raphael.min.js"></script> -->
-    <!-- <script src="js/plugins/morris/morris.min.js"></script> -->
-    <script src="js/plugins/morris/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
-
-
-    <!-- Custom Fonts -->
-    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,6 +74,8 @@
             </div>
         </nav>
         <!-- </nav> -->
+
+
 <div id="container">
   <div class="column" id="column1">
     <div id="topleft" class="element top_row">
@@ -167,129 +172,280 @@ minutes.<br>
     </div>
     </div>
     <div class="column" id="patient_data_column">
-               <div class="panel-default" id="usage_data_panel">
+               <!-- <div class="panel-default" id="usage_data_panel"> -->
                         <div class="panel-heading patient_data_panel" id ="patient_data_panel_heading">Patient Usage Data
                         </div>
-                        <div class="panel-body" id="patient_data_panel">
-                            <table class="table table-responsive table-striped" id="usage_data_table">
+                <!-- <div class="panel-body"> -->
+                    <!-- <div class="outer_table"> -->
+                        <!-- <div class="data_table"> -->
+                        <!-- <div style="height: 500px;"> -->
+                            <table  id="patient_data" class="display" cellspacing="0" width="100%" >
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
-                                                <th> </th>
+                                                <!-- <th> </th> -->
                                                 <th>Time</th>
-                                                <th>  </th>
+                                                <!-- <th>  </th> -->
                                                 <th>Duration</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>3:29 PM</td>
-                                                <td> </td>
                                                 <td>4:47</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>3:20 PM</td>
-                                                <td> </td>
                                                 <td>4:56</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>3:03 PM</td>
-                                                <td> </td>
                                                 <td>5:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>3:00 PM</td>
-                                                <td> </td>
                                                 <td>4:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>2:49 PM</td>
-                                                <td> </td>
                                                 <td>5:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>2:23 PM</td>
-                                                <td> </td>
                                                 <td>$245.12</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>2:15 PM</td>
-                                                <td> </td>
                                                 <td>$5663.54</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
                                                 <td>2:13 PM</td>
-                                                <td> </td>
                                                 <td>5:00</td>
                                             </tr>
-                                               <tr>
+                                                <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                               <tr>
-                                                <td>10/21/2013</td>
-                                                <td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
-                                                <td>5:00</td>
-                                            </tr>
-                                               <tr>
-                                                <td>10/21/2013</td><td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                               <tr>
-                                                <td>10/21/2013</td>
-                                                <td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
+                                                <td>3:03 PM</td>
                                                 <td>5:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
+                                                <td>3:00 PM</td>
+                                                <td>4:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
                                                 <td>5:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
                                                 <td>2:13 PM</td>
-                                                <td> </td>
+                                                <td>5:00</td>
+                                            </tr>
+                                              <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                                <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
                                                 <td>5:00</td>
                                             </tr>
                                             <tr>
                                                 <td>10/21/2013</td>
-                                                <td> </td>
-                                                <td>2:13 PM</td>
-                                                <td> </td>
+                                                <td>3:00 PM</td>
+                                                <td>4:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
                                                 <td>5:00</td>
                                             </tr>
-                        </div>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>  <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                                <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>4:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>  <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                                <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>4:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>  <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                                <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>4:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>5:00</td>
+                                            </tr>
+
                                         </tbody>
+                                    </div>
                                     </table>
+                        </div>
                     </div>
+                </div>
+            </div>
                                 <!-- /.table-responsive -->
                 </div>
 </div>

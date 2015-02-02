@@ -1,3 +1,17 @@
+$(document).ready(function() {
+    $('#patient_data').dataTable( {
+        "scrollCollapse": true,
+        "scrollY":        "600px",
+        "paging":         false,
+        "bPaginate": false,
+        "bFilter": false,
+        "bInfo": false
+    } );
+});
+
+$('#patient_data').css('height','625px');
+
+$(".data_table tr:odd").addClass("odd");
 
 $(function () {
   $('#gauge_chart').highcharts({
