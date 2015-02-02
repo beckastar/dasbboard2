@@ -1,6 +1,8 @@
 $(document).ready(function() {
     $('#patient_data').dataTable( {
+        "responsive": true,
         "scrollCollapse": true,
+        "sScrollY": 640,
         "scrollY":        "600px",
         "paging":         false,
         "bPaginate": false,
