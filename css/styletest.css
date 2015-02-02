@@ -82,7 +82,13 @@ td:last-child {
 #gauge_chart{
   background-color: #E4E4EA;
 }
-#settings_table > tr{
+table#patient_data.display.dataTable{
+  width: 100%;
+  position: relative;
+  left: 0%;
+}
+
+/*#settings_table > tr{
   padding: 10px;
 }
 #patient_data_panel_heading{
@@ -93,7 +99,8 @@ td:last-child {
 }
 #patient_data_panel{
      background-color: alice-blue;
-}
+}*/
+
 /*table#data_table{
   font-family: verdana,arial,sans-serif;
   font-size:11px;
