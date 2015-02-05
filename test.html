@@ -14,30 +14,15 @@
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Datatables CSS--><!--
-    <link  rel="stylesheet" type="text/css" href="code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="cdn.datatables.net/plug-ins/3cfcc339e89/integration/jqueryui/dataTables.jqueryui.css">
- -->
-
- <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
-      <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
-
     <!-- Custom CSS -->
     <link href="css/styletest.css" rel="stylesheet">
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap.dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="tableScroll/jquery.tablescroll.css"/>
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-
-    <!-- Datatables JS -->
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://datatables.net/release-datatables/extensions/Scroller/js/dataTables.scroller.js"></script>
-    <script type="text/javascript" charset="utf8" src="http://editor.datatables.net/media/css/dataTables.editor.min.css"></script>
-    <!-- MetisMenu CSS -->
-    <!-- <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap.dist/js/bootstrap.min.js"></script>
 
 
     <!-- Highcharts -->
@@ -47,13 +32,19 @@
     <script src="http://code.highcharts.com/highcharts-more.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+
+    <!-- TableScroll -->
+    <script src="tableScroll/jquery.tablescroll.js"/></script>
+
     <!-- Javascript -->
     <script src="js/dashboard.js"></script>
 
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
 
+    <!-- Datatables JS -->
+   <!--  <script src="datatables/jquery-1.11.1.min.js"></script>
+    <script src="datatables/jquery.dataTables.min.js"></script>
+ -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -173,23 +164,16 @@ minutes.<br>
     </div>
     <div class="column" id="patient_data_column">
                <!-- <div class="panel-default" id="usage_data_panel"> -->
-                        <div class="panel-heading patient_data_panel" id ="patient_data_panel_heading">Patient Usage Data
-                        </div>
-                <!-- <div class="panel-body"> -->
-                    <!-- <div class="outer_table"> -->
-                        <!-- <div class="data_table"> -->
-                        <!-- <div style="height: 500px;"> -->
-                            <table  id="patient_data" class="display" cellspacing="0" width="100%" >
+                        <div class="panel-heading" id ="patient_data_panel_heading">Patient Usage Data
+                        <div class="tablescroll">
+                            <table  id="thetable" class="display" cellspacing="0" width="100%" >
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
-                                                <!-- <th> </th> -->
                                                 <th>Time</th>
-                                                <!-- <th>  </th> -->
                                                 <th>Duration</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
                                             <tr>
                                                 <td>10/21/2013</td>
@@ -440,7 +424,6 @@ minutes.<br>
                                             </tr>
 
                                         </tbody>
-                                    </div>
                                     </table>
                         </div>
                     </div>
