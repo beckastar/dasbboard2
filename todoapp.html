@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Becka Robbins @beckastar">
+
+
+    <!-- jQuery -->
+       <script src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+
+
+
+
+<body>
+
+<div id="container">
+<ul id="tasks">List
+</ul>
+<textarea rows="1" columns = "100" id="new_task"></textarea>
+<button type="button" id="add_item">Add Item</button>
+<button type="button" id="add_item">Clear All</button>
+
+</div>
+<script>
+// var addItem = $("#add_item");
+// var clearAll = $("clear_all");
+
+$("#add_item").on("click", function(){
+        console.log("clicked!");
+      $("#tasks").append("<li class='item'>"+ $("#new_task").val() + "</li>" );
+});
+</script>
+</body>

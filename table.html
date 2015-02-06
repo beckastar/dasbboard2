@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Becka Robbins @beckastar">
+
+
+    <link href="css/styletest.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="tableScroll/jquery.tablescroll.css"/>
+
+    <!-- jQuery -->
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap.dist/js/bootstrap.min.js"></script>
+
+        <!-- Highcharts -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/data.js"></script>
+    <script src="http://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <!-- Custom CSS -->
+    <link href="css/styletest.css" rel="stylesheet">
+
+    <!-- TableScroll -->
+    <script src="tableScroll/jquery.tablescroll.js"/></script>
+    <script src="js/dashboard.js"></script>
+
+    </head>
+       <script>
+ $.fn.tableScroll.defaults =
+{
+    flush: true, // makes the last thead and tbody column flush with the scrollbar
+    width: null, // width of the table (head, body and foot), null defaults to the tables natural width
+    height: 200, // height of the scrollable area
+    containerClass: 'tablescroll' // the plugin wraps the table in a div with this css class
+};
+jQuery(document).ready(function($)
+{
+    $('#thetable').tableScroll({height:100});
+
+    // other examples
+
+    // sets the table to have a scrollable area of 200px
+    $('#thetable').tableScroll({height:100});
+
+    // sets a hard width limit for the table, setting this too small
+    // may not always work
+    $('#thetable').tableScroll({width:400});
+
+    // by default the plugin will wrap everything in a div with this
+    // css class, if it finds that you have manually wrapped the
+    // table with a custom element using this same css class it
+    // will forgo creating a container DIV element
+    $('#thetable').tableScroll({containerClass:'myCustomClass'});
+});
+</script>
+</head>
+<body>
+   <!-- Navigation -->
+        <nav  class="navbar-default" >
+            <div id="heading">
+                <div class="navbar-header">
+
+                    <span class="navbar-text navbarDashboardText" id="userText">Signed in as <a href="#" class="navbar-link">{{name}}, {{role}} </a></span>
+                    <span class="navbar-text pull-right navbarDashboardText" id="dateText">Today is January 1, 2015</span>
+                    <div>
+                 </div>
+            </div>
+        </nav>
+        <!-- </nav> -->
+<div id="container">
+<div class="column" id="column1">
+    <div id="topleft" class="element top_row">
+      <div class="panel-default panel">
+        <div class="panel-heading">You're doing {{adjective}} at the program
+        </div>
+        <div id="gauge_chart">
+        </div>
+        </div>
+    </div>
+    <div id="bottomleft" class="element bottom_row">
+         <div class="panel-default panel" >
+            <div class="panel-heading" id="settings_table">Settings
+            </div>
+            <table class="table table-striped">
+             <thead>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+
+                </tr>
+            </thead>
+             <tr>
+                <td>Device ID</td>
+                <td>8620</td>
+                </tr>
+                  <tr>
+                    <td>MD Name</td>
+                    <td>Jones</td>
+                </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>8620</td>
+                </tr>
+                  <tr>
+                    <td>Device ID</td>
+                    <td>8620</td>
+                </tr>
+                <tr>
+                    <td>Vibration</td>
+                    <td>24 vpm</td>
+                </tr>
+                <tr>
+                    <td>Minutes per Day</td>
+                    <td>24 vpm</td>
+                </tr>
+                  <tr>
+                    <td><button type="button" id="save_settings">Save Settings</button></td>
+                    <td><button type="button" id="clear_settings">Clear Settings</button></td>
+                </tr>
+            </table>
+        </div>
+   <!-- below end element-->
+    </div>
+    <!-- below end column -->
+  </div>
+  <div class="column">
+    <div id="topmiddle" class=" element top_row">
+        <div class="panel-default" id="line_graph_container">
+            <div class="panel-heading">Minutes per Day</div>
+            <div class="panel-body">
+                <div id="line_graph">
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="element bottom_row">
+            <div class="panel-default" id="instructions">
+                <div class="panel-heading" id ="instructions_heading">Instructions
+                </div>
+                <div class="panel-body" id="instructions_panel_body">
+                <p>Charge the device for at least half an
+
+                hour before first use.</p><br>
+
+                <p>Use this device once daily for 5 minutes.</p><br>
+
+                <p>Startby pushing the ON/OFF button.</p><br>
+
+                <p>If the device does not start, charge it.</p><br>
+
+                <p>Stop device while running by pushing the
+
+                ON/OFF again.</p><br>
+
+                <p>Device stops automatically after 5
+
+                minutes.<br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="column">
+    <div id="datatable_element">
+        <div class="panel-heading" id ="patient_data_panel_heading">Patient Usage Data
+        </div>
+        <div class="tablescroll">
+                <table  id="thetable" cellspacing="0" >
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Time</td>
+                            <td>Duration</td>
+                        </tr>
+                    </thead>
+                        <tr>
+                        <tr class="first">
+                            <td>10/21/2013</td>
+                            <td>3:20 PM</td>
+                            <td>4:56</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                            <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                          <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                            <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>  <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                            <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>  <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                            <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>  <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                            <tr>
+                            <td>10/21/2013</td>
+                            <td>3:03 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>3:00 PM</td>
+                            <td>4:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:49 PM</td>
+                            <td>5:00</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:23 PM</td>
+                            <td>$245.12</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:15 PM</td>
+                            <td>$5663.54</td>
+                        </tr>
+                        <tr>
+                            <td>10/21/2013</td>
+                            <td>2:13 PM</td>
+                            <td>5:00</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+        </div
+    </div>
+</div>
+
+</body>
