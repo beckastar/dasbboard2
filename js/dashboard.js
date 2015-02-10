@@ -108,19 +108,41 @@ $(function () {
                 setInterval(function () {
                     var point = chart.series[0].points[0],
                         newVal,
-                        inc = Math.round((Math.random() - 0.5) * 20);
+                        inc = Math.round((Math.random() * 10) + 1);
 
                     newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 200) {
-                        newVal = point.y - inc;
+                    if (newVal < 0 || newVal > 10) {
+                        newVal = inc;
                     }
 
                     point.update(newVal);
-
+                    console.log(newVal);
+                    // $("#eval #adjective").empty();
+                    add_adjective(newVal);
                 }, 3000);
+
             }
         });
 });
+
+function add_adjective(num){
+    $("#eval #adjective").empty();
+    console.log("adjective");
+    var adjective;
+     if (num<=4){
+        adjective = "poorly";
+    }
+    else if (num<=7 ){
+        adjective = "pretty ok";
+    }
+    else if (num<=11 ){
+        adjective = "great";
+    }
+     // $("#eval span").text(adjective);
+
+    return $("#eval #adjective").append(adjective);
+}
+
 
 
 //TODO: create array of milliseconds to convert

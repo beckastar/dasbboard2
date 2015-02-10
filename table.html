@@ -85,7 +85,7 @@ jQuery(document).ready(function($)
 <div class="column" id="column1">
     <div id="topleft" class="element top_row">
       <div class="panel-default panel">
-        <div class="panel-heading">You're doing {{adjective}} at the program
+        <div class="panel-heading" id="eval">You're doing <span id="adjective"></span> at the program
         </div>
         <div id="gauge_chart">
         </div>
@@ -95,14 +95,15 @@ jQuery(document).ready(function($)
          <div class="panel-default panel" >
             <div class="panel-heading" id="settings_table">Settings
             </div>
+
             <table class="table table-striped">
-             <thead>
+ <!--             <thead style="width: 400px;">
                 <tr>
                     <th>Setting</th>
                     <th>Value</th>
 
                 </tr>
-            </thead>
+            </thead> -->
              <tr>
                 <td>Device ID</td>
                 <td>8620</td>
@@ -179,15 +180,28 @@ jQuery(document).ready(function($)
     <div id="datatable_element">
         <div class="panel-heading" id ="patient_data_panel_heading">Patient Usage Data
         </div>
+        <div class="headingcontainer">
+        <div class="tableheading">
+        <div class="Cell" id ="date">
+            <p>Date</p>
+        </div>
+        <div class="Cell" id ="time">
+            <p>Time</p>
+        </div>
+        <div class="Cell" id="duration">
+            <p>Duration</p>
+        </div>
+    </div>
+    </div>
         <div class="tablescroll">
                 <table  id="thetable" cellspacing="0" >
-                    <thead>
+    <!--                 <thead>
                         <tr>
                             <td>Date</td>
                             <td>Time</td>
                             <td>Duration</td>
                         </tr>
-                    </thead>
+                    </thead> -->
                         <tr>
                         <tr class="first">
                             <td>10/21/2013</td>

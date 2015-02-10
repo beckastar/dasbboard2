@@ -1,10 +1,8 @@
+
 /*
-
 Copyright (c) 2009 Dimas Begunoff, http://www.farinspace.com
-
 Licensed under the MIT license
 http://en.wikipedia.org/wiki/MIT_License
-
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without
@@ -13,10 +11,8 @@ copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the
 Software is furnished to do so, subject to the following
 conditions:
-
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,7 +21,6 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
 */
 
 ;(function($){
@@ -33,25 +28,25 @@ OTHER DEALINGS IN THE SOFTWARE.
 	var scrollbarWidth = 0;
 
 	// http://jdsharp.us/jQuery/minute/calculate-scrollbar-width.php
-	function getScrollbarWidth() 
+	function getScrollbarWidth()
 	{
 		if (scrollbarWidth) return scrollbarWidth;
-		var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div></div>'); 
-		$('body').append(div); 
-		var w1 = $('div', div).innerWidth(); 
-		div.css('overflow-y', 'auto'); 
-		var w2 = $('div', div).innerWidth(); 
-		$(div).remove(); 
+		var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div></div>');
+		$('body').append(div);
+		var w1 = $('div', div).innerWidth();
+		div.css('overflow-y', 'auto');
+		var w2 = $('div', div).innerWidth();
+		$(div).remove();
 		scrollbarWidth = (w1 - w2);
 		return scrollbarWidth;
 	}
-	
+
 	$.fn.tableScroll = function(options)
 	{
 		if (options == 'undo')
 		{
 			var container = $(this).parent().parent();
-			if (container.hasClass('tablescroll_wrapper')) 
+			if (container.hasClass('tablescroll_wrapper'))
 			{
 				container.find('.tablescroll_head thead').prependTo(this);
 				container.find('.tablescroll_foot tfoot').appendTo(this);
@@ -62,7 +57,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 		}
 
 		var settings = $.extend({},$.fn.tableScroll.defaults,options);
-		
+
 		// Bail out if there's no vertical overflow
 		//if ($(this).height() <= settings.height)
 		//{
@@ -74,7 +69,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 		this.each(function()
 		{
 			var flush = settings.flush;
-			
+
 			var tb = $(this).addClass('tablescroll_body');
 
             // find or create the wrapper div (allows tableScroll to be re-applied)
@@ -117,7 +112,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 				flush = false;
 			}
 
-			// using wrap does not put wrapper in the DOM right 
+			// using wrap does not put wrapper in the DOM right
 			// away making it unavailable for use during runtime
 			// tb.wrap(wrapper);
 
@@ -140,12 +135,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 				if (has_tfoot) $('th:eq('+i+'), td:eq('+i+')',tfoot_tr_first).css('width',w+'px');
 			});
 
-			if (has_thead) 
+			if (has_thead)
 			{
 				var tbh = $('<table class="tablescroll_head" cellspacing="0"></table>').insertBefore(wrapper).prepend($('thead',tb));
 			}
 
-			if (has_tfoot) 
+			if (has_tfoot)
 			{
 				var tbf = $('<table class="tablescroll_foot" cellspacing="0"></table>').insertAfter(wrapper).prepend($('tfoot',tb));
 			}
@@ -153,7 +148,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 			if (tbh != undefined)
 			{
 				tbh.css('width',width+'px');
-				
+
 				if (flush)
 				{
 					$('tr:first th:last, tr:first td:last',tbh).css('width',(w+settings.scrollbarWidth)+'px');
