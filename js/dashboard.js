@@ -3,12 +3,12 @@ $(function () {
   $('#gauge_chart').highcharts({
         chart: {
             type: 'gauge',
-            spacingTop: -100,
-            marginLeft: 50,
-            // align: 'center',
+            spacingTop: -120,
+            marginLeft: 0,
+            align: 'center',
             verticalAlign: 'top',
             // spacingBottom: 30,
-            width: 250,
+            width: 200,
             backgroundColor:  '#E5E5E5',
             // plotBackgroundColor: null,
             // plotBackgroundImage: null,
@@ -23,6 +23,8 @@ $(function () {
         },
         exporting: { enabled: false },
         pane: {
+            //[right, top]
+            center: ['50%', '50%'],
             startAngle: -150,
             endAngle: 150,
             background: [{
@@ -143,6 +145,10 @@ function add_adjective(num){
     return $("#eval #adjective").append(adjective);
 }
 
+// $('#gauge_chart').center({
+//   against : '#gauge_chart_container',
+//   top: 10
+// });
 
 
 //TODO: create array of milliseconds to convert

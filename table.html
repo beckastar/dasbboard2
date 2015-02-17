@@ -36,6 +36,7 @@
 
     <!-- TableScroll -->
     <script src="tableScroll/jquery.tablescroll.js"/></script>
+    <script src="jquery_center/jquery_center/jquery.center.js"/></script>
     <script src="js/dashboard.js"></script>
 
     </head>
@@ -82,13 +83,17 @@ jQuery(document).ready(function($)
         </nav>
         <!-- </nav> -->
 <div id="container">
+<!-- <div id="spaceholderleft">
+</div> -->
 <div class="column" id="column1">
     <div id="topleft" class="element top_row">
       <div class="panel-default panel">
         <div class="panel-heading" id="eval">You're doing <span id="adjective"></span> at the program
         </div>
-        <div id="gauge_chart">
-        </div>
+            <div id="guage_chart_container">
+                <div id="gauge_chart">
+                </div>
+            </div>
         </div>
     </div>
     <div id="bottomleft" class="element bottom_row">
@@ -138,7 +143,7 @@ jQuery(document).ready(function($)
     </div>
     <!-- below end column -->
   </div>
-  <div class="column">
+  <div class="column" id="column2">
     <div id="topmiddle" class=" element top_row">
         <div class="panel-default" id="line_graph_container">
             <div class="panel-heading">Minutes per Day</div>
@@ -175,8 +180,7 @@ jQuery(document).ready(function($)
         </div>
     </div>
 
-
-    <div class="column">
+    <div class="column" id="tablecolumn">
     <div id="datatable_element">
         <div class="panel-heading" id ="patient_data_panel_heading">Patient Usage Data
         </div>

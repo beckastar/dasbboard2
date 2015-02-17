@@ -4,19 +4,48 @@ html, body {
 body{
   background: #E4E4EA;
 }
+#column1{
+  padding-left: 2%;
+  padding-right: 1%;
+  width: 33.3%;
+  float: left;
+  left: 5%
+
+}
+#column2{
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 33.3%;
+  float: left;
+  left: 40%;
+}
+
+#tablecolumn{
+  /*background-color: green;*/
+  width: 23% !important;
+  padding-left: 1%;
+  padding-right: 2%;
+  left: 70%;
+  position: absolute;
+  margin: 0 auto;
+}
+
 .column {
   display: flex;
   flex-direction: column;
-  width: 33.3%;
+  position: absolute;
   height: 100%;
   padding-right: 10px;
+  float: left;
+  position: absolute;
+  margin: 0 auto;
+  left: 5%
 }
 #container {
   display: flex;
   width: 100%;
   height: 90%;
 }
-
 #container  #patient_data_column{
   float: left;
   position: relative;
@@ -41,7 +70,9 @@ body{
   height: 100%%;
   overflow: hidden;
   margin: 10px;
-  margin-bottom: ;
+  width: 400px;
+  /*background-color: green;*/
+  /*margin-bottom: ;*/
 }
 
 #heading .navbar-header{
@@ -98,6 +129,10 @@ background-color: black;
 .tablescroll table{
   border: 6px green;
 }
+
+div#bottomleft.element.bottom_row{
+  background-color: white;
+}
 */
 /*div#patient_data_panel_heading.panel_heading{
   border: 7px #ADC698;
@@ -115,6 +150,7 @@ background-color: black;
 
 body #heading .navbar-header{
   /*padding: 0px 1px;*/
+  width: 102%
 }
 
 .tablescroll {
@@ -129,6 +165,7 @@ body #heading .navbar-header{
 .tablescroll_head,
 .tablescroll_foot {
     /*border:1px solid #ccc;*/
+    background-color: green;
 }
 
 .tablescroll td {
@@ -204,4 +241,9 @@ div#patient_data_panel_heading{
 
 #instructions_panel_body{
   background-color: white;
+}
+div#guage_chart_container{
+  width: 50%;
+position: relative;
+left: 25%;
 }
