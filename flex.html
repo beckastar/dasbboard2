@@ -3,15 +3,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Becka Robbins @beckastar">
 
 
-    <link href="css/styletest.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -19,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="tableScroll/jquery.tablescroll.css"/>
 
     <!-- jQuery -->
-     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap.dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <!-- Highcharts -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
@@ -30,17 +28,14 @@
     <script src="http://code.highcharts.com/highcharts-more.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-
-    <!-- Custom CSS -->
     <link href="css/flex.css" rel="stylesheet">
 
-    <!-- TableScroll -->
     <script src="tableScroll/jquery.tablescroll.js"/></script>
     <script src="jquery_center/jquery_center/jquery.center.js"/></script>
     <script src="js/dashboard.js"></script>
 
-    </head>
-       <script>
+</head>
+<script>
  $.fn.tableScroll.defaults =
 {
     flush: true, // makes the last thead and tbody column flush with the scrollbar
@@ -68,37 +63,87 @@ jQuery(document).ready(function($)
     $('#thetable').tableScroll({containerClass:'myCustomClass'});
 });
 </script>
-</head>
 <body>
-   <!-- Navigation -->
-        <!-- </nav> -->
-<!-- <div id="container"> temp disabled-->
-<div class="flexcontainer">
-        <nav  class="navbar-default" >
+ <nav  class="navbar-default" >
             <div id="heading">
-                <div class="navbar-header">
+            <div class="navbar-header">
 
-                    <span class="navbar-text navbarDashboardText" id="userText">Signed in as <a href="#" class="navbar-link">{{name}}, {{role}} </a></span>
-                    <span class="navbar-text pull-right navbarDashboardText" id="dateText">Today is January 1, 2015</span>
-                    <div>
-                 </div>
-            </div>
-        </nav>
-<!-- <div id="spaceholderleft">
-</div> -->
-<!-- <div class="column" id="column1"> temp disabled-->
-<div class="column">
-    <!-- starts top left element -->
-    <div>
-      <div class="panel-default panel">
-        <div class="panel-heading" id="eval">You're doing <span id="adjective"></span> at the program
-        </div>
-            <div id="guage_chart_container">
-                <div id="gauge_chart">
+                <span class="navbar-text navbarDashboardText" id="userText">Signed in as <a href="#" class="navbar-link">{{name}}, {{role}} </a></span>
+                <span class="navbar-text pull-right navbarDashboardText" id="dateText">Today is January 1, 2015</span>
+            <div>
+         </div>
+    </div>
+</nav>
+
+
+
+<div class="flexcontainer">
+
+<div class="column" id="column1">
+
+    <div id="bottomleft" class="element bottom_row">
+         <div class="panel-default panel" >
+                <div class="panel-heading" id="eval">You're doing <span id="adjective"><br></span> at the program
                 </div>
-            </div>
+            <table class="table table-striped">
+            <tr>
+            <td id="emoticon">blah blah </td>
+            <td id="adjective">blah blah </td>
+            </tr>
+            </table>
         </div>
     </div>
+<!-- </div> -->
+
+<script type="text/javascript">
+// right now this only works if it is in the file; soemthing is buggy with the jquery given all the dependencies.  on the first release, this will have to do. this script adds the emoticon and the status message that lets the user know how they are doing at the program.
+
+var nums = [1, 2, 3, 4, 5, 6, 6, 7, 4, 7, 8, 9, 10, 3, 7, 6,];
+
+function get_rand(arr){
+    var maximum = arr.length;
+    var  minimum = 0;
+    var rand  = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+    console.log(rand);
+    return rand;
+}
+
+
+function choose_adjective(num){
+    var num = get_rand(nums);
+    var happy_face = '<img src="img/happy.jpg">';
+    var sad_face = '<img src="img/sad.jpg">';
+    var neutral_face = '<img src="img/neutral.png">';
+    // $("#eval #adjective").empty();
+    var adjective, face;
+     if (num<=4){
+        adjective = "sad";
+        face = sad_face;
+    }
+    else if (num<=7 ){
+        adjective = "pretty ok";
+        face = neutral_face;
+    }
+    else if (num>7){
+        adjective = "great";
+        face = happy_face;
+    }
+     // $("#eval span").text(adjective);
+    addjquery(face, adjective);
+    console.log(adjective, face);
+    return;
+}
+function addjquery(emo, adj){
+    $("td#emoticon").append(emo);
+    $("td#adjective").append(adj);
+    console.log("called");
+}
+
+choose_adjective();
+
+
+</script>
+    <!-- </div> -->
     <div id="bottomleft" class="element bottom_row">
          <div class="panel-default panel" >
             <div class="panel-heading" id="settings_table">Settings
@@ -142,21 +187,31 @@ jQuery(document).ready(function($)
                 </tr>
             </table>
         </div>
+    </div>
    <!-- below end element-->
-    </div>
-    <!-- below end column -->
-  </div>
-  <div class="column" id="column2">
-  <!-- <div class="column"> -->
-    <div id="topmiddle" class=" element top_row">
-        <div class="panel-default" id="line_graph_container">
-            <div class="panel-heading">Minutes per Day</div>
-            <div class="panel-body">
-                <div id="line_graph">
-                </div>
-            </div>
+    <!-- </div> -->
+
+
+<!-- end col -->
+</div>
+
+
+
+
+
+<div class="column" id = "column2">
+
+<!-- line graph -->
+    <div class="panel-default panel element">
+    <div class="panel-heading">Minutes per Day</div>
+   <!--  <div class="panel-body"> -->
+        <div id="line_graph">
         </div>
-    </div>
+    <!-- </div> -->
+</div>
+<!-- end line graph -->
+
+
         <div class="element bottom_row">
             <div class="panel-default" id="instructions">
                 <div class="panel-heading" id ="instructions_heading">Instructions
@@ -182,11 +237,11 @@ jQuery(document).ready(function($)
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
-    <!-- <div class="column" id="tablecolumn"> -->
-    <div class="column">
-    <div id="datatable_element">
+
+<div class="column" id="col4">
+<div id="datatable_element">
         <div class="panel-heading" id ="patient_data_panel_heading">Patient Usage Data
         </div>
         <div class="headingcontainer">
@@ -460,5 +515,7 @@ jQuery(document).ready(function($)
         </div
     </div>
 </div>
+</div>
 
+</div>
 </body>

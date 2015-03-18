@@ -1,154 +1,73 @@
 
-$(function () {
-  $('#gauge_chart').highcharts({
-        chart: {
-            type: 'gauge',
-            spacingTop: -120,
-            marginLeft: 0,
-            align: 'center',
-            verticalAlign: 'top',
-            // spacingBottom: 30,
-            width: 200,
-            backgroundColor:  '#E5E5E5',
-            // plotBackgroundColor: null,
-            // plotBackgroundImage: null,
-            // plotBorderWidth: 0,
-            // plotShadow: false
-        },
-        plotOptions: {
-          center: ['50%','50%'],
-        },
-        title: {
-            text: ''
-        },
-        exporting: { enabled: false },
-        pane: {
-            //[right, top]
-            center: ['50%', '50%'],
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 1,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#DDD',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
+var nums = [1, 2, 3, 4, 5, 6, 6, 7, 4, 7, 8, 9, 10, 3, 7, 6,];
 
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 10,
+function get_rand(arr){
+    var maximum = arr.length;
+    var  minimum = 0;
+    var rand  = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+    console.log(rand);
+    return rand;
+}
 
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
 
-            tickPixelInterval: 25,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: 'avg min/week'
-            },
-            plotBands: [{
-                from: 0,
-                to: 4,
-                color: 'red' // green
-            }, {
-                from: 4,
-                to: 7,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 7,
-                to: 10,
-                color: 'green' // red
-            }]
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [80],
-            tooltip: {
-                valueSuffix: ' Average Minutes'
-            }
-        }]
-
-    },
-        // Add some life
-        function (chart) {
-            if (!chart.renderer.forExport) {
-                setInterval(function () {
-                    var point = chart.series[0].points[0],
-                        newVal,
-                        inc = Math.round((Math.random() * 10) + 1);
-
-                    newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 10) {
-                        newVal = inc;
-                    }
-
-                    point.update(newVal);
-                    console.log(newVal);
-                    // $("#eval #adjective").empty();
-                    add_adjective(newVal);
-                }, 3000);
-
-            }
-        });
-});
-
-function add_adjective(num){
-    $("#eval #adjective").empty();
-    console.log("adjective");
-    var adjective;
+function choose_adjective(num){
+    var num = get_rand(nums);
+    var happy_face = '<img src="img/happy.jpg">';
+    var sad_face = '<img src="img/sad.jpg">';
+    var neutral_face = '<img src="img/neutral.png">';
+    // $("#eval #adjective").empty();
+    var adjective, face;
      if (num<=4){
-        adjective = "poorly";
+        adjective = "sad";
+        face = sad_face;
     }
     else if (num<=7 ){
         adjective = "pretty ok";
+        face = neutral_face;
     }
-    else if (num<=11 ){
+    else if (num>7){
         adjective = "great";
+        face = happy_face;
     }
      // $("#eval span").text(adjective);
-
-    return $("#eval #adjective").append(adjective);
+    addjquery(face, adjective);
+    console.log(adjective, face);
+    return;
+}
+function addjquery(emo, adj){
+    $("td#emoticon").append(emo);
+    $("td#adjective").append(adj);
+    console.log("called");
 }
 
-// $('#gauge_chart').center({
-//   against : '#gauge_chart_container',
-//   top: 10
-// });
+choose_adjective();
+
+        // Add some life
+// var rand_status = function () {
+//     var happy = ":)";
+//     var sad = ":(";
+//     var ok = ":|";
+//     setInterval(function () {
+//         var rand_num = get_rand(nums);
+//         if (rand_num<4){
+//             // $("#status_panel").append(sad);
+//         }
+//         else if (rand_num>4 && rand_num<8){
+//             // $("#status_panel").append(ok);
+//         }
+//         else if(rand_num>8){
+//             // $("#status_panel").append(happy);
+//         }
+//         console.log(rand_num);
+//         // $("#eval #adjective").empty();
+//         add_adjective(rand_num);
+//         $("#status_panel").append();
+
+//     }, 3000);
+// };
+
+// rand_status();
+
 
 
 //TODO: create array of milliseconds to convert
@@ -164,7 +83,8 @@ function add_adjective(num){
           chart: {
               type: 'column',
               height: 240,
-              backgroundColor:  '#E5E5E5'
+              backgroundColor:  "#ffffff",
+              width: 300
           },
 
           title: {
